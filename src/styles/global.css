@@ -1,0 +1,129 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #FFF9F5;
+  color: #2D3436;
+}
+
+:root {
+  --color-cream: #FFF9F5;
+  --color-coral: #20865d;
+  --color-mint: #4c7667;
+  --color-text: #2D3436;
+}
+
+/* Hero section */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: var(--color-mint);
+  margin-bottom: 2rem;
+}
+
+.hero img {
+  max-width: 200px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* Message sections */
+.message-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tagline {
+  font-size: 1.75rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.wisdom {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+/* Screenshots section */
+.screenshots {
+  padding: 3rem 2rem;
+  background: var(--color-mint);
+}
+
+.screenshots h2 {
+  text-align: center;
+  font-size: 1.75rem;
+  color: var(--color-cream);
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.screenshot-grid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 600px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tagline {
+    font-size: 1.4rem;
+  }
+  
+  .wisdom {
+    font-size: 1.25rem;
+  }
+}
+
+.screenshot-grid img:first-child {
+  transform: rotate(-2deg);
+}
+
+.screenshot-grid img:last-child {
+  transform: rotate(2deg);
+}
+
+.screenshot-grid img:hover {
+  transform: rotate(0deg) scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Footer */
+footer {
+  padding: 0.7rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-mint);
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
