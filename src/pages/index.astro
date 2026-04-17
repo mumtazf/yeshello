@@ -9,6 +9,10 @@ import '../styles/global.css';
     <title>YesHello</title>
   </head>
   <body>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
+    </button>
     <section class="hero">
       <h1>Yes Hello!</h1>
       <img src="/images/me-waving.png" alt="Me saying hello" />
@@ -47,5 +51,12 @@ import '../styles/global.css';
       Made with ♥ by mumtaz
     </footer>
 
+    <script>
+      const toggle = document.querySelector('.theme-toggle');
+      
+      toggle?.addEventListener('click', () => {
+        const isLight = document.documentElement.classList.toggle('light');
+      });
+    </script>
   </body>
 </html>

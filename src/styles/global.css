@@ -5,17 +5,83 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background: #FFF9F5;
-  color: #2D3436;
+/* Dark mode (default) */
+:root {
+  --color-bg: #1a1a2e;
+  --color-cream: #16213e;
+  --color-coral: #4ecca3;
+  --color-mint: #367b56;
+  --color-text: #e8e8e8;
+  --color-accent: #4ecca3;
 }
 
-:root {
+/* Light mode */
+:root.light {
+  --color-bg: #FFF9F5;
   --color-cream: #FFF9F5;
   --color-coral: #20865d;
   --color-mint: #4c7667;
   --color-text: #2D3436;
+  --color-accent: #20865d;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-mint);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Dark mode: show sun icon */
+.theme-toggle .icon-sun {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-toggle .icon-moon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+/* Light mode: show moon icon */
+:root.light .theme-toggle .icon-sun {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+:root.light .theme-toggle .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 /* Hero section */
@@ -84,6 +150,7 @@ body {
 .screenshots {
   padding: 3rem 2rem;
   background: var(--color-mint);
+  transition: background 0.3s ease;
 }
 
 .screenshots h2 {
@@ -144,4 +211,5 @@ footer {
   color: var(--color-text);
   background: var(--color-mint);
   border-top: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.3s ease, color 0.3s ease;
 }
